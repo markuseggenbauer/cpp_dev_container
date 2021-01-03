@@ -10,7 +10,7 @@ echo "Mapping host .gitconfig to container .gitconfig"
 rm -f $HOMEDIR/.gitconfig
 ln -s $HOMEDIR/host-home/.gitconfig $HOMEDIR/.gitconfig
 
-echo "Mapping container .vscode-server/extensions to container external mount"
+echo "Mapping folder ~/.vscode-server/extensions to persistent mount"
 if [ ! -d "$HOMEDIR/persistent_data/.vscode-server/extensions" ]; then
     mkdir -p $HOMEDIR/persistent_data/.vscode-server/extensions
     mv $HOMEDIR/.vscode-server/extensions $HOMEDIR/persistent_data/.vscode-server/
@@ -18,3 +18,12 @@ else
     rm -fr mv $HOMEDIR/.vscode-server/extensions
 fi
 ln -s $HOMEDIR/persistent_data/.vscode-server/extensions $HOMEDIR/.vscode-server/extensions
+
+echo "Mapping folder ~/.conan to persistent mount"
+if [ ! -d "$HOMEDIR/persistent_data/.conan" ]; then
+    mkdir -p $HOMEDIR/persistent_data/.conan
+    mv $HOMEDIR/.conan/* $HOMEDIR/persistent_data/.conan/
+else
+    rm -fr mv $HOMEDIR/.conan
+fi
+ln -s $HOMEDIR/persistent_data/.conan $HOMEDIR/.conan

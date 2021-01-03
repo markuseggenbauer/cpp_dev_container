@@ -39,6 +39,7 @@
         ],
         "cmake.configureOnEdit": false,
         "cmake.parallelJobs": 8,
+        "cmake.saveBeforeBuild": true,
         "editor.formatOnSave": true,
         "editor.defaultFormatter": "xaver.clang-format",
         "[cmake]": {
