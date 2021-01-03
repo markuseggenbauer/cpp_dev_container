@@ -28,7 +28,8 @@
         "xaver.clang-format",
         "mhutchie.git-graph",
         "hbenl.vscode-test-explorer",
-        "matepek.vscode-catch2-test-adapter"
+        "matepek.vscode-catch2-test-adapter",
+        "cheshirekow.cmake-format"
     ],
     "settings": {
         "terminal.integrated.copyOnSelection": true,
@@ -40,7 +41,9 @@
         "cmake.parallelJobs": 8,
         "editor.formatOnSave": true,
         "editor.defaultFormatter": "xaver.clang-format",
-        "clang-format.executable": "clang-format",
+        "[cmake]": {
+            "editor.defaultFormatter": "cheshirekow.cmake-format"
+        },
         "editor.rulers": [
             100
         ],
@@ -69,7 +72,8 @@
                     "name": "Attach to process",
                     "type": "cppdbg",
                     "request": "attach",
-                    "pid": "${command:pickMyProcess}"
+                    "processId": "${command:pickMyProcess}",
+                    "program": "${command:cmake.launchTargetPath}",
                 }
             ],
             "compounds": []

@@ -27,6 +27,8 @@ RUN apt-get update && apt-get install -y \
     python3-pip
 
 RUN pip3 install conan --no-warn-script-location
+RUN pip3 install cmake_format
+
 
 RUN adduser ${USERNAME} --quiet
 USER ${USERNAME}
