@@ -15,10 +15,11 @@
     ],
     "mounts": [
         "source=${localWorkspaceFolder}/persistent_data/,target=/home/${localEnv:USER}/persistent_data,type=bind,consistency=cached",
+        "source=${localWorkspaceFolder}/../persistent_data,target=/home/${localEnv:USER}/workspace,type=bind,consistency=cached",
         "source=/home/${localEnv:USER}/,target=/home/${localEnv:USER}/host-home,type=bind,consistency=cached,ro=true"
     ],
-    "workspaceFolder": "/home/${localEnv:USER}/workspace",
-    "workspaceMount": "source=${localWorkspaceFolder}/../persistent_data,target=/home/${localEnv:USER}/workspace,type=bind,consistency=cached",
+    "workspaceFolder": "/home/${localEnv:USER}/cpp_dojo",
+    "workspaceMount": "source=${localWorkspaceFolder}/cpp_dojo/,target=/home/${localEnv:USER}/cpp_dojo,type=bind,consistency=cached",
     "postCreateCommand": "/bin/sh /home/${localEnv:USER}/scripts/postCreate.sh",
     "extensions": [
         "ms-vscode.cpptools",
@@ -26,10 +27,15 @@
         "twxs.cmake",
         "xaver.clang-format",
         "mhutchie.git-graph",
+        "hbenl.vscode-test-explorer",
         "matepek.vscode-catch2-test-adapter"
     ],
     "settings": {
+        "terminal.integrated.copyOnSelection": true,
         "terminal.integrated.shell.linux": "/bin/bash",
+        "terminal.integrated.shellArgs.linux": [
+            "-l"
+        ],
         "cmake.configureOnEdit": false,
         "cmake.parallelJobs": 8,
         "editor.formatOnSave": true,
