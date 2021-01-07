@@ -1,21 +1,22 @@
 list(APPEND CMAKE_MODULE_PATH ${CMAKE_BINARY_DIR})
 list(APPEND CMAKE_PREFIX_PATH ${CMAKE_BINARY_DIR})
 
-# Coverage
-
-# if(NOT EXISTS "${CMAKE_BINARY_DIR}/CodeCoverage.cmake") message( STATUS
-# "Downloading CodeCoverage.cmake from
-# https://raw.githubusercontent.com/bilke/cmake-modules/master/CodeCoverage.cmake"
-# ) file( DOWNLOAD
-# "https://raw.githubusercontent.com/bilke/cmake-modules/master/CodeCoverage.cmake"
-# "${CMAKE_BINARY_DIR}/CodeCoverage.cmake") endif()
-
-# include(CodeCoverage) set(CMAKE_CXX_FLAGS_DEBUG # ##${COVERAGE_COMPILER_FLAGS}
-# CACHE STRING "Flags used by the C++ compiler during coverage builds." FORCE)
-
 set(CMAKE_CXX_FLAGS_DEBUG
     "-g -O1 -fsanitize=undefined -fsanitize=address -fno-omit-frame-pointer -fno-optimize-sibling-calls"
     CACHE STRING "Flags used by the C++ compiler during coverage builds." FORCE)
+
+# Get cmake hlper functions (later via conan, right now via FetchContent)
+include(FetchContent)
+FetchContent_Declare(
+  build_api
+  GIT_REPOSITORY https://github.com/markuseggenbauer/build_api.git
+  GIT_TAG main)
+
+FetchContent_GetProperties(build_api)
+if(NOT build_api_POPULATED)
+  FetchContent_Populate(build_api)
+endif()
+list(APPEND CMAKE_MODULE_PATH ${build_api_SOURCE_DIR}/cmake/lib/src)
 
 # Conan package manager
 if(NOT EXISTS "${CMAKE_BINARY_DIR}/conan.cmake")
@@ -40,3 +41,4 @@ conan_cmake_run(
   missing)
 
 include(CTest)
+include(me_build_api)

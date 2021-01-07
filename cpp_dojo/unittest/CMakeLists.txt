@@ -1,7 +1,12 @@
 find_package(GTest)
 
-add_executable(unittest_kata kata.cpp)
-
-target_link_libraries(unittest_kata PRIVATE kata GTest::gtest GTest::gtest_main)
+me_add_executable_artifact(
+  unittest_kata
+  SOURCES
+  kata.cpp
+  DEPENDS
+  kata
+  GTest::gtest
+  GTest::gtest_main)
 
 add_test(unittest_kata unittest_kata)
