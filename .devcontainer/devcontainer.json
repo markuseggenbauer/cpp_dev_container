@@ -37,6 +37,10 @@
         "terminal.integrated.shellArgs.linux": [
             "-l"
         ],
+        "editor.tokenColorCustomizations": {
+            "comments": "#d0d000"
+        },
+        "editor.minimap.enabled": false,
         "cmake.configureOnEdit": false,
         "cmake.parallelJobs": 8,
         "cmake.saveBeforeBuild": true,
