@@ -10,12 +10,12 @@ list(APPEND CMAKE_PREFIX_PATH ${CMAKE_BINARY_DIR})
 # "https://raw.githubusercontent.com/bilke/cmake-modules/master/CodeCoverage.cmake"
 # "${CMAKE_BINARY_DIR}/CodeCoverage.cmake") endif()
 
-# include(CodeCoverage)
+# include(CodeCoverage) set(CMAKE_CXX_FLAGS_DEBUG # ##${COVERAGE_COMPILER_FLAGS}
+# CACHE STRING "Flags used by the C++ compiler during coverage builds." FORCE)
 
-# set(CMAKE_CXX_FLAGS_DEBUG ${COVERAGE_COMPILER_FLAGS} CACHE STRING "Flags used
-# by the C++ compiler during coverage builds." FORCE) set(CMAKE_C_FLAGS_DEBUG
-# ${COVERAGE_COMPILER_FLAGS} CACHE STRING "Flags used by the C compiler during
-# coverage builds." FORCE)
+set(CMAKE_CXX_FLAGS_DEBUG
+    "-g -O1 -fsanitize=undefined -fsanitize=address -fno-omit-frame-pointer -fno-optimize-sibling-calls"
+    CACHE STRING "Flags used by the C++ compiler during coverage builds." FORCE)
 
 # Conan package manager
 if(NOT EXISTS "${CMAKE_BINARY_DIR}/conan.cmake")
