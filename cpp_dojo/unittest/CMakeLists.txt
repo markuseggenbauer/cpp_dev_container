@@ -1,6 +1,6 @@
 find_package(GTest)
 
-me_add_executable_artifact(
+me_add_executable(
   unittest_kata
   SOURCES
   kata.cpp

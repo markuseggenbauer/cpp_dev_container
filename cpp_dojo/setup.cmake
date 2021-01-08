@@ -17,6 +17,7 @@ if(NOT build_api_POPULATED)
   FetchContent_Populate(build_api)
 endif()
 list(APPEND CMAKE_MODULE_PATH ${build_api_SOURCE_DIR}/cmake/lib/src)
+set(ME_CMAKE_SOURCE_DIR ${build_api_SOURCE_DIR}/cmake/lib/src)
 
 # Conan package manager
 if(NOT EXISTS "${CMAKE_BINARY_DIR}/conan.cmake")
