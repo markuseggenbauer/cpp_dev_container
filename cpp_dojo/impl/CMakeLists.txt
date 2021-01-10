@@ -1,1 +1,10 @@
-me_add_unit(kata)
+me_add_unit(
+  kata
+  INTERFACE_DIR
+  inc
+  INTERFACES
+  kata/kata.hpp
+  SOURCE_DIR
+  src
+  SOURCES
+  kata/kata.cpp)

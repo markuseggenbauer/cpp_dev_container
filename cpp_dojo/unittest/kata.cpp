@@ -1,3 +1,5 @@
+#include "kata/kata.hpp"
+
 #include "gtest/gtest.h"
 
 namespace {

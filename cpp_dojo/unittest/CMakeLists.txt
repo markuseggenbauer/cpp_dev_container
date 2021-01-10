@@ -1,12 +1,10 @@
 find_package(GTest)
 
-me_add_executable(
-  unittest_kata
+me_add_unittest(
+  kata
   SOURCES
   kata.cpp
-  DEPENDS
-  kata
+  SOURCE_DEPENDS
   GTest::gtest
+  CONTAINS
   GTest::gtest_main)
-
-add_test(unittest_kata unittest_kata)
