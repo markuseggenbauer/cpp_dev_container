@@ -3,6 +3,7 @@ Linux-container based C++ development environment (VSC integration)
 
 
 ## Prerequisites
+* Install docker community edition (docker desktop on windows)
 * Install Visual Studio Code (VSC) (https://code.visualstudio.com/)
 * Install Visual Studio Code remote extension pack:
   * code --install-extension ms-vscode-remote.vscode-remote-extensionpack 
