@@ -27,3 +27,6 @@ else
     rm -fr mv $HOMEDIR/.conan
 fi
 ln -s $HOMEDIR/persistent_data/.conan $HOMEDIR/.conan
+
+# enable C++11 ABI by default
+sed -i 's/libstdc++/libstdc++11/'  ~/.conan/profiles/default
