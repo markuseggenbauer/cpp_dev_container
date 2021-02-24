@@ -1,5 +1,5 @@
 [requires]
-build_api/0.1
+build_api/1.0
 gtest/1.10.0
 
 [generators]

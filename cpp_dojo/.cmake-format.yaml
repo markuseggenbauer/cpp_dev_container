@@ -3,7 +3,7 @@ parse:
   _help_additional_commands:
   - Specify structure for custom cmake functions
   additional_commands:
-    me_add_implementation_unit:
+    me_add_implementation_package:
       kwargs:
         PUBLIC_HEADER_DIR: '*'
         PUBLIC_HEADER_DEPENDS: '*'
@@ -11,7 +11,7 @@ parse:
         SOURCE_DIR: '*'
         SOURCE_DEPENDS: '*'
         SOURCES: '*'
-    me_add_unit:
+    me_add_package:
       kwargs:
         PUBLIC_HEADER_DIR: '*'
         PUBLIC_HEADER_DEPENDS: '*'
@@ -19,7 +19,7 @@ parse:
         SOURCE_DIR: '*'
         SOURCE_DEPENDS: '*'
         SOURCES: '*'
-    me_add_interface_unit:
+    me_add_interface_package:
       kwargs:
         PUBLIC_HEADER_DIR: '*'
         PUBLIC_HEADER_DEPENDS: '*'
@@ -30,7 +30,7 @@ parse:
     me_add_library:
       kwargs:
         CONTAINS: '*'
-    me_add_unittest:
+    me_add_packagetest:
       kwargs:
         CONTAINS: '*'
         SOURCE_DIR: '*'
