@@ -30,6 +30,15 @@ RUN pip3 install conan --no-warn-script-location
 RUN pip3 install cmake_format
 
 
+# common documentation tools
+RUN apt-get update && apt-get install -y \
+    default-jre-headless \
+    graphviz \
+    asciidoctor \
+    plantuml
+
+RUN gem install asciidoctor-diagram
+
 RUN adduser ${USERNAME} --quiet
 USER ${USERNAME}
 

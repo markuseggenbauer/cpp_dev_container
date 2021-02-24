@@ -29,7 +29,9 @@
         "mhutchie.git-graph",
         "hbenl.vscode-test-explorer",
         "matepek.vscode-catch2-test-adapter",
-        "cheshirekow.cmake-format"
+        "cheshirekow.cmake-format",
+        "jebbs.plantuml",
+        "asciidoctor.asciidoctor-vscode"
     ],
     "settings": {
         "terminal.integrated.copyOnSelection": true,
@@ -54,6 +56,9 @@
         ],
         "files.trimFinalNewlines": true,
         "files.insertFinalNewline": true,
+        "asciidoc.asciidoctor_command": "asciidoctor -r asciidoctor-diagram",
+        "asciidoc.preview.useEditorStyle": false,
+        "asciidoc.use_asciidoctor_js": false,
         "launch": {
             "configurations": [
                 {
