@@ -29,4 +29,4 @@ fi
 ln -s $HOMEDIR/persistent_data/.conan $HOMEDIR/.conan
 
 # enable C++11 ABI by default
-sed -i 's/libstdc++/libstdc++11/'  ~/.conan/profiles/default
+conan profile update settings.compiler.libcxx=libstdc++11 default
