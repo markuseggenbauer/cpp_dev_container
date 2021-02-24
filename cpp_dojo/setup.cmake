@@ -1,26 +1,27 @@
-list(APPEND CMAKE_MODULE_PATH ${CMAKE_BINARY_DIR})
-list(APPEND CMAKE_PREFIX_PATH ${CMAKE_BINARY_DIR})
+find_program(
+    CONAN_CMD
+    conan
+)
 
-# Conan package manager
-if(NOT EXISTS "${CMAKE_BINARY_DIR}/conan.cmake")
-  message(
-    STATUS
-      "Downloading conan.cmake from https://github.com/conan-io/cmake-conan")
-  file(
-    DOWNLOAD
-    "https://raw.githubusercontent.com/conan-io/cmake-conan/master/conan.cmake"
-    "${CMAKE_BINARY_DIR}/conan.cmake")
+if(CONAN_CMD)
+    execute_process(
+        COMMAND "${CONAN_CMD}" "install" "--build" "missing" "-if" "${CMAKE_BINARY_DIR}" "."
+        WORKING_DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}"
+    )
+else()
+    message(FATAL_ERROR "Conan is required.")
 endif()
 
-include(conan)
+list(
+    APPEND
+    CMAKE_MODULE_PATH
+    ${CMAKE_BINARY_DIR}
+)
+list(
+    APPEND
+    CMAKE_PREFIX_PATH
+    ${CMAKE_BINARY_DIR}
+)
 
-conan_cmake_run(
-  CONANFILE
-  conanfile.txt
-  BASIC_SETUP
-  CMAKE_TARGETS
-  NO_OUTPUT_DIRS
-  BUILD
-  missing)
-
+find_package(build_api)
 include(CTest)
