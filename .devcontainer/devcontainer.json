@@ -13,13 +13,13 @@
         "seccomp=unconfined"
     ],
     "mounts": [
-        "source=${localWorkspaceFolder}/persistent_data/,target=/home/${localEnv:USER}/persistent_data,type=bind,consistency=cached",
-        "source=${localWorkspaceFolder}/../persistent_data,target=/home/${localEnv:USER}/workspace,type=bind,consistency=cached",
-        "source=/home/${localEnv:USER}/,target=/home/${localEnv:USER}/host-home,type=bind,consistency=cached,ro=true"
+        "source=${localWorkspaceFolder}/persistent_data/,target=/home/developer/persistent_data,type=bind,consistency=cached",
+        "source=${localWorkspaceFolder}/../persistent_data,target=/home/developer/workspace,type=bind,consistency=cached",
+        "source=/home/${localEnv:USER}/,target=/home/developer/host-home,type=bind,consistency=cached,ro=true"
     ],
-    "workspaceFolder": "/home/${localEnv:USER}/cpp_dojo",
-    "workspaceMount": "source=${localWorkspaceFolder}/cpp_dojo/,target=/home/${localEnv:USER}/cpp_dojo,type=bind,consistency=cached",
-    "postCreateCommand": "/bin/sh /home/${localEnv:USER}/scripts/postCreate.sh",
+    "workspaceFolder": "/home/developer/cpp_dojo",
+    "workspaceMount": "source=${localWorkspaceFolder}/cpp_dojo/,target=/home/developer/cpp_dojo,type=bind,consistency=cached",
+    "postCreateCommand": "/bin/sh /home/developer/scripts/postCreate.sh",
     "extensions": [
         "ms-vscode.cpptools",
         "ms-vscode.cmake-tools",

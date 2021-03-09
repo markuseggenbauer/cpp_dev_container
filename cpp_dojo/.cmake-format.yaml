@@ -36,6 +36,10 @@ parse:
         SOURCE_DIR: '*'
         SOURCE_DEPENDS: '*'
         SOURCES: '*'
+    me_find_package:
+      kwargs:
+        COMPONENTS: '*'
+        OPTIONAL_COMPONENTS: '*'
   _help_override_spec:
   - Override configurations per-command where available
   override_spec: {}
@@ -75,11 +79,11 @@ format:
   _help_max_subgroups_hwrap:
   - If an argument group contains more than this many sub-groups
   - (parg or kwarg groups) then force it to a vertical layout.
-  max_subgroups_hwrap: 1
+  max_subgroups_hwrap: 4
   _help_max_pargs_hwrap:
   - If a positional argument group contains more than this many
   - arguments, then force it to a vertical layout.
-  max_pargs_hwrap: 1
+  max_pargs_hwrap: 4
   _help_max_rows_cmdline:
   - If a cmdline positional group consumes more than this many
   - lines without nesting, then invalidate the layout (and nest)

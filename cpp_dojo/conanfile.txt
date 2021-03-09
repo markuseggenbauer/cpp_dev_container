@@ -1,5 +1,6 @@
 [requires]
-build_api/1.0
+me_find_package/main
+me_build/main
 gtest/1.10.0
 
 [generators]
