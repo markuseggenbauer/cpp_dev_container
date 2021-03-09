@@ -1,11 +1,10 @@
 {
     "name": "c++ development container",
-    "build": {
-        "dockerfile": "Dockerfile",
-        "args": {
-            "USERNAME": "${localEnv:USER}"
-        }
-    },
+    "image": "markuseggenbauer/me_cpp_dev",
+    // for development purposes
+    // "build": {
+    //     "dockerfile": "Dockerfile",
+    // },
     "initializeCommand": "mkdir -p ${localWorkspaceFolder}/persistent_data; mkdir -p ${localWorkspaceFolder}/../persistent_data",
     "runArgs": [
         "--cap-add=SYS_PTRACE",
