@@ -4,7 +4,7 @@ ARG USERNAME=developer
 ENV DEBIAN_FRONTEND noninteractive
 
 RUN apt-get update && apt-get install -y \
-   apt-utils
+    apt-utils
 
 RUN apt-get update && apt-get install -y \
     gpgconf \
@@ -26,11 +26,6 @@ RUN apt-get update && apt-get install -y \
     python3 \
     python3-pip
 
-RUN pip3 install conan --no-warn-script-location
-RUN pip3 install cmake_format
-
-
-# common documentation tools
 RUN apt-get update && apt-get install -y \
     default-jre-headless \
     graphviz \
@@ -38,9 +33,9 @@ RUN apt-get update && apt-get install -y \
     plantuml
 
 RUN gem install asciidoctor-diagram
+RUN pip3 install cmake_format
+RUN pip3 install conan --no-warn-script-location  && \
+    conan profile new default --detect && \
+    conan profile update settings.compiler.libcxx=libstdc++11 default && \
+    conan remote add me-repo https://markuseggenbauer.jfrog.io/artifactory/api/conan/me-conan -i 0 --force
 
-RUN adduser ${USERNAME} --quiet
-
-USER ${USERNAME}
-
-COPY scripts /home/${USERNAME}/scripts

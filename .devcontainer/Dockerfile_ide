@@ -1,0 +1,6 @@
+FROM markuseggenbauer/me_cpp_dev
+
+ARG USERNAME=developer
+RUN adduser ${USERNAME} --quiet
+USER ${USERNAME}
+COPY scripts /home/${USERNAME}/scripts

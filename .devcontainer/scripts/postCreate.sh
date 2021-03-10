@@ -29,5 +29,9 @@ fi
 ln -s $HOMEDIR/persistent_data/.conan $HOMEDIR/.conan
 
 # setup conan
-conan profile update settings.compiler.libcxx=libstdc++11 default
-conan remote add me-repo https://markuseggenbauer.jfrog.io/artifactory/api/conan/me-conan -i 0 --force
+conan profile list | grep default || \
+conan profile new default --detect && \
+conan profile update settings.compiler.libcxx=libstdc++11 default && \
+conan profile update settings.build_type=Debug default
+
+conan remote add me-repo https://markuseggenbauer.jfrog.io/artifactory/api/conan/me-conan -i 0 --force    
