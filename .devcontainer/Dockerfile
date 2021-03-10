@@ -40,6 +40,7 @@ RUN apt-get update && apt-get install -y \
 RUN gem install asciidoctor-diagram
 
 RUN adduser ${USERNAME} --quiet
+
 USER ${USERNAME}
 
 COPY scripts /home/${USERNAME}/scripts
