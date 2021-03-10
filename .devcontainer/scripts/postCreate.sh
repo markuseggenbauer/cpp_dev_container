@@ -15,7 +15,7 @@ if [ ! -d "$HOMEDIR/persistent_data/.vscode-server/extensions" ]; then
     mkdir -p $HOMEDIR/persistent_data/.vscode-server/extensions
     mv $HOMEDIR/.vscode-server/extensions $HOMEDIR/persistent_data/.vscode-server/
 else
-    rm -fr mv $HOMEDIR/.vscode-server/extensions
+    rm -fr $HOMEDIR/.vscode-server/extensions
 fi
 ln -s $HOMEDIR/persistent_data/.vscode-server/extensions $HOMEDIR/.vscode-server/extensions
 
@@ -24,9 +24,10 @@ if [ ! -d "$HOMEDIR/persistent_data/.conan" ]; then
     mkdir -p $HOMEDIR/persistent_data/.conan
     mv $HOMEDIR/.conan/* $HOMEDIR/persistent_data/.conan/
 else
-    rm -fr mv $HOMEDIR/.conan
+    rm -fr $HOMEDIR/.conan
 fi
 ln -s $HOMEDIR/persistent_data/.conan $HOMEDIR/.conan
 
-# enable C++11 ABI by default
+# setup conan
 conan profile update settings.compiler.libcxx=libstdc++11 default
+conan remote add me-repo https://markuseggenbauer.jfrog.io/artifactory/api/conan/me-conan -i 0 --force
