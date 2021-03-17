@@ -1,3 +1,4 @@
+![](https://github.com/markuseggenbauer/cpp_dev_container/actions/workflows/docker_build_publish.yaml/badge.svg)
 # cpp_dev_container
 Linux-container based C++ development environment (VSC integration)
 
